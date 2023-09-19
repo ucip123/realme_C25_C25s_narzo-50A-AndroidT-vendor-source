@@ -851,8 +851,8 @@ static int als_cali_read_func(struct seq_file *s, void *v)
 {
 	void *p = s->private;
 
-	DEVINFO_LOG("Ptr2UINT32(p) = %d \n", uint32_t(p));
-	switch (uint32_t(p)) {
+	DEVINFO_LOG("uint32_t(p) = %d \n", (unsigned long)Ptr2UINT32(p));
+	switch ((unsigned long)(p)) {
 	case RED_MAX_LUX:
 		seq_printf(s, "%d", gdata->red_max_lux);
 		break;
@@ -885,7 +885,7 @@ static ssize_t als_cali_write(struct file *filp, const char *ubuf, size_t cnt, l
 	int ret = 0;
 	struct seq_file *s = filp->private_data;
 	void *p = s->private;
-	uint32_t node = Ptr2UINT32(p);
+	uintptr_t node = (unsigned long)(p);
 
 	if (cnt >= sizeof(buf)) {
 		return -EINVAL;
