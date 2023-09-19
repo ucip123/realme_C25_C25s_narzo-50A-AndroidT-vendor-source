@@ -68,7 +68,6 @@ enum {
 
 #define UINT2Ptr(n)     (uint32_t *)(n)
 #define Ptr2UINT32(p)   (uint32_t)(p)
-#define Ptr2UINT32(p)   (unsigned long)(p)
 #define MAG_PARA_OFFSET               8
 /*#define SOURCE_NUM                    3*/
 #define MAG_PARA_NUM                  9
@@ -1620,7 +1619,7 @@ static ssize_t sensor_feature_write(struct file *filp, const char *ubuf, size_t 
 	int result = 0;
 	struct seq_file *s = filp->private_data;
 	void *p = s->private;
-	int node = p;
+	int node = (int)p;
 
 	if (cnt >= sizeof(buf)) {
 		return -EINVAL;
