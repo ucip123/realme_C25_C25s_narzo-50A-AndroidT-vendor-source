@@ -885,7 +885,7 @@ static ssize_t als_cali_write(struct file *filp, const char *ubuf, size_t cnt, l
 	int ret = 0;
 	struct seq_file *s = filp->private_data;
 	void *p = s->private;
-	uint32_t node = (p);
+	uint32_t node = Ptr2UINT32(p);
 
 	if (cnt >= sizeof(buf)) {
 		return -EINVAL;
