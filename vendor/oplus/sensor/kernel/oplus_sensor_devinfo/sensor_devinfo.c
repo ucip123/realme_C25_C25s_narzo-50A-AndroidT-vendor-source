@@ -68,6 +68,7 @@ enum {
 
 #define UINT2Ptr(n)     (uint32_t *)(n)
 #define Ptr2UINT32(p)   (uint32_t)(p)	 (unsigned long)(p)
+#include <stdio.h>
 #define MAG_PARA_OFFSET               8
 /*#define SOURCE_NUM                    3*/
 #define MAG_PARA_NUM                  9
@@ -851,7 +852,7 @@ static int als_cali_read_func(struct seq_file *s, void *v)
 {
 	void *p = s->private;
 
-	printf("uint32_t(p) = %ld \n", (unsigned long)Ptr2UINT32(p));
+	DEVINFO_LOG("uint32_t(p) = %ld \n", (unsigned long)Ptr2UINT32(p));
 	switch ((unsigned long)(p)) {
 	case RED_MAX_LUX:
 		seq_printf(s, "%d", gdata->red_max_lux);
@@ -1534,7 +1535,7 @@ static int sensor_feature_read_func(struct seq_file *s, void *v)
 	int ret = 0;
 	int selftest_result = 0;
 
-	printf("uint32_t(p) = %ld \n", Ptr2UINT32(p));
+	DEVINFO_LOG("uint32_t(p) = %ld \n", Ptr2UINT32(p),);
 	switch ((unsigned long)(p)) {
 	case IS_SUPPROT_HWCALI:
 		if (!strcmp(sensorlist_info[ps].name, "tcs3701")) {
