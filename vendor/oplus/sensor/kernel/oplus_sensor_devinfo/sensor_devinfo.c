@@ -2,6 +2,7 @@
 /*
  * Copyright (C) 2018-2020 Oplus. All rights reserved.
  */
+#include <stdio.h>
 #include <linux/uaccess.h>
 #include <linux/module.h>
 #include <linux/kernel.h>
