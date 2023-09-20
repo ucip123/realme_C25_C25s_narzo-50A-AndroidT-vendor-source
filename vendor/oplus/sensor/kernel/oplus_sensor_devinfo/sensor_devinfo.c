@@ -68,7 +68,6 @@ enum {
 
 #define UINT2Ptr(n)     (uint32_t *)(n)
 #define Ptr2UINT32(p)   (uint32_t)(p)	 (unsigned long)(p)
-#include <stdio.h>
 #define MAG_PARA_OFFSET               8
 /*#define SOURCE_NUM                    3*/
 #define MAG_PARA_NUM                  9
