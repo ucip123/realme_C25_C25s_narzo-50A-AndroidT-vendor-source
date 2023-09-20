@@ -851,7 +851,7 @@ static int als_cali_read_func(struct seq_file *s, void *v)
 {
 	void *p = s->private;
 
-	DEVINFO_LOG("uint32_t(p) = %ld \n", (unsigned long)Ptr2UINT32(p));
+	printf("uint32_t(p) = %ld \n", (unsigned long)Ptr2UINT32(p));
 	switch ((unsigned long)(p)) {
 	case RED_MAX_LUX:
 		seq_printf(s, "%d", gdata->red_max_lux);
@@ -1534,7 +1534,7 @@ static int sensor_feature_read_func(struct seq_file *s, void *v)
 	int ret = 0;
 	int selftest_result = 0;
 
-	DEVINFO_LOG("uint32_t(p) = %ld \n", Ptr2UINT32(p));
+	printf("uint32_t(p) = %ld \n", Ptr2UINT32(p));
 	switch ((unsigned long)(p)) {
 	case IS_SUPPROT_HWCALI:
 		if (!strcmp(sensorlist_info[ps].name, "tcs3701")) {
@@ -1619,7 +1619,7 @@ static ssize_t sensor_feature_write(struct file *filp, const char *ubuf, size_t 
 	int result = 0;
 	struct seq_file *s = filp->private_data;
 	void *p = s->private;
-	int node = (int)p;
+	unsigned long node = (unsigned long)p;
 
 	if (cnt >= sizeof(buf)) {
 		return -EINVAL;
