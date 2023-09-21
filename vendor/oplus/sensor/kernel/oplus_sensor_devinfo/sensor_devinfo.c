@@ -852,7 +852,7 @@ static int als_cali_read_func(struct seq_file *s, void *v)
 {
 	void *p = s->private;
 
-	DEVINFO_LOG("uint32_t(p) = %ld \n", (unsigned long)Ptr2UINT32(p));
+	DEVINFO_LOG("uint32_t(p) = %ld \n", (unsigned long)Ptr2UINT32(p),);
 	switch ((unsigned long)(p)) {
 	case RED_MAX_LUX:
 		seq_printf(s, "%d", gdata->red_max_lux);
